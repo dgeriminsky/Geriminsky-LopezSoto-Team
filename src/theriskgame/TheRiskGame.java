@@ -5,6 +5,7 @@
  */
 package theriskgame;
 
+import byui.cit260.TheRiskGame.model.Game;
 import byui.cit260.TheRiskGame.model.Player;
 
 
@@ -27,8 +28,13 @@ public class TheRiskGame {
         String playerInfo = playerOne.toString();    
         System.out.println(playerInfo);
         
-                
+        Game newGame = new Game();
+     
+        newGame.setNoPlayer(2);
+        newGame.setTotalTime(12);
         
+        String gameInfo = newGame.toString();    
+        System.out.println(gameInfo);
     }
     
     

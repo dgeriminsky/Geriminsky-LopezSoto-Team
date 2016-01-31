@@ -7,9 +7,11 @@ package theriskgame;
 
 import byui.cit260.TheRiskGame.model.Map;
 import byui.cit260.TheRiskGame.model.Cards;
+import byui.cit260.TheRiskGame.model.CardsDeck;
+import byui.cit260.TheRiskGame.model.Continent;
 import byui.cit260.TheRiskGame.model.Game;
 import byui.cit260.TheRiskGame.model.Player;
-
+import byui.cit260.TheRiskGame.model.Territory;
 
 /**
  *
@@ -57,6 +59,37 @@ public class TheRiskGame {
         
         String mapInfo = newMap.toString();
         System.out.println(mapInfo);
+        
+        //Code to run and test CardsDeck class
+        CardsDeck cardsDeck = new CardsDeck();
+        
+        cardsDeck.setNumberOfCards(60);
+                        
+        String cardsDeckInfo = cardsDeck.toString();    
+        System.out.println(cardsDeckInfo);
+        
+        //Code to run and test Continent class
+        Continent europe = new Continent();
+        
+        europe.setName("Europe");
+        europe.setNumberOfReinforcements(8);
+        europe.setNumberOfTerritories(12);
+        
+        String continentInfo = europe.toString();
+        System.out.println(continentInfo);
+        
+        //Code to run and test Territory class
+        Territory brazil = new Territory();
+        
+        brazil.setColumn('C');
+        brazil.setGarrisonSize(7);
+        brazil.setName("Brazil");
+        brazil.setOwner("Lehi");
+        brazil.setRow(14);
+        
+        String territoryInfo = brazil.toString();
+        System.out.println(territoryInfo);
+        
     }
     
     

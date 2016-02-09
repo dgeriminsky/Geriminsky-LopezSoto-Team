@@ -13,7 +13,35 @@ public class TurnControl {
     
     //initialize class variables
     
-    public int getReinforcementUnits(){
+    public int getReinforcementUnits(int territoriesOwned, int unitsFromContinents){
+        int unitT;
+        
+        if (territoriesOwned <=0){
+        return -999;
+        }
+        
+        if (territoriesOwned < 4 && unitsFromContinents > 0){
+        return -999;
+        }
+    
+        if (unitsFromContinents >22){
+        return -999;
+        }
+        
+        
+    // find amount of units player receives based on territories owned
+    unitT = territoriesOwned / 3;
+        
+        if (unitT<3){
+        return 3;
+        }
+        
+        //combine units received from territories 
+        //and those from owning continents
+        int reinforcements = unitT + unitsFromContinents;
+                
+        return reinforcements;
+                
     }
     
     public int getCardReinforcementUnits(int cardExchangeTurn){
@@ -43,7 +71,7 @@ public class TurnControl {
     
     
     }
-    
+/*    
     public void placeReinforcementUnits(){
     }
     
@@ -58,3 +86,4 @@ public class TurnControl {
     
     
 }
+*/

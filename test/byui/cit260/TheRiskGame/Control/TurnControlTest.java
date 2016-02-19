@@ -120,17 +120,70 @@ public class TurnControlTest {
     /**
      * Test of getCardReinforcementUnits method, of class TurnControl.
      */
-    /*
+    
     @Test
     public void testGetCardReinforcementUnits() {
+        
         System.out.println("getCardReinforcementUnits");
-        int cardExchangeTurn = 0;
+        
+        /*************************
+        * Test case #1
+        ************************/
+        System.out.println("\tTest case #1");
+        
+        int cardExchangeTurn = 5;
+        int expResult = 15;
         TurnControl instance = new TurnControl();
-        int expResult = 0;
+        
         int result = instance.getCardReinforcementUnits(cardExchangeTurn);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
+        
+        /*************************
+         * Test case #2
+         ************************/
+        System.out.println("\tTest case #2");
+        
+        cardExchangeTurn = 0;
+        expResult = -999;
+     
+        result = instance.getCardReinforcementUnits(cardExchangeTurn);
+        assertEquals(expResult, result);
+        
+        /*************************
+        * Test case #3
+        ************************/
+        System.out.println("\tTest case #3");
+        
+        cardExchangeTurn = -1;
+        expResult = -999;
+     
+        result = instance.getCardReinforcementUnits(cardExchangeTurn);
+        assertEquals(expResult, result);
+        
+        /*************************
+        * Test case #4
+        ************************/
+        System.out.println("\tTest case #4");
+        
+        cardExchangeTurn = 1;
+        expResult = 4;
+     
+        result = instance.getCardReinforcementUnits(cardExchangeTurn);
+        assertEquals(expResult, result);
+        
+        /*************************
+        * Test case #5
+        ************************/
+        System.out.println("\tTest case #5");
+        
+        cardExchangeTurn = 10;
+        expResult = 40;
+     
+        result = instance.getCardReinforcementUnits(cardExchangeTurn);
+        assertEquals(expResult, result);
+        
     }
-    */
+    
 }

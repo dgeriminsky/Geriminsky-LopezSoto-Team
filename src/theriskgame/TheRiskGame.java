@@ -5,13 +5,7 @@
  */
 package theriskgame;
 
-import byui.cit260.TheRiskGame.model.Map;
-import byui.cit260.TheRiskGame.model.Cards;
-import byui.cit260.TheRiskGame.model.CardsDeck;
-import byui.cit260.TheRiskGame.model.Continent;
-import byui.cit260.TheRiskGame.model.Game;
-import byui.cit260.TheRiskGame.model.Player;
-import byui.cit260.TheRiskGame.model.Territory;
+import byui.cit260.TheRiskGame.view.StartProgramView;
 
 /**
  *
@@ -24,6 +18,13 @@ public class TheRiskGame {
      */
     public static void main(String[] args) {
         
+        // create StartProgramViewOrig and display the start program view
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
+        
+        
+        
+        /*
         Player playerOne = new Player();
         
         playerOne.setName("Lehi Lopez");
@@ -89,7 +90,7 @@ public class TheRiskGame {
         
         String territoryInfo = brazil.toString();
         System.out.println(territoryInfo);
-        
+        */
     }
     
     

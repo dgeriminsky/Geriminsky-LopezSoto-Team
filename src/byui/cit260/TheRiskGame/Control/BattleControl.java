@@ -17,13 +17,104 @@ public class BattleControl {
     public void setDefenseArmy(int defendArmyUnits){
     }
     
-    public int rollAttackDice(){
-    }
+    //public int rollAttackDice(){
+    //}
     
-    public int rollDefenseDice(){
-    }
+    //public int rollDefenseDice(){
+    //}
     
-    public void defineBattleResult(){
+    public int defineBattleResult(int attackDice1, int attackDice2
+            , int attackDice3, int defenseDice1, int defenseDice2){
+        
+        // Validation of inputs
+        if ( attackDice1 > 6 || attackDice2 > 6 || attackDice3 > 6 ||
+                defenseDice1 > 6 || defenseDice2 > 6 ) {
+            return -1;
+        }
+        
+        if ( attackDice1 < 0 || attackDice2 < 0 || attackDice3 < 0 ||
+                defenseDice1 < 0 || defenseDice2 < 0 ) {
+            return -1;
+        }
+        
+        if ( ( attackDice1 == 0 && attackDice2 == 0 && attackDice3 == 0 ) ||
+                ( defenseDice1 == 0 && defenseDice2 == 0 ) ) {
+            return -1;
+        }
+        
+        // Ordering attacking units
+        int attackUnit1;
+        int attackUnit2;
+        
+        if ( (attackDice1 >= attackDice2) && (attackDice1 >= attackDice3) ) {
+            attackUnit1 = attackDice1;
+            if ( attackDice2 >= attackDice3 ) {
+                attackUnit2 = attackDice2;
+            }
+            else {
+                attackUnit2 = attackDice3;
+            }
+        }
+        else {
+            if ((attackDice2 >= attackDice1) && (attackDice2 >= attackDice3)) {
+                attackUnit1 = attackDice2;
+                if (attackDice1 >= attackDice3) {
+                    attackUnit2 = attackDice1;
+                }
+                else {
+                    attackUnit2 = attackDice3;
+                }
+            }
+            else {
+                attackUnit1 = attackDice3;
+                if (attackDice1 >= attackDice2) {
+                    attackUnit2 = attackDice1;
+                }
+                else {
+                    attackUnit2 = attackDice2;                    
+                }
+            }
+        }
+        
+        // Ordering defending units
+        int defenseUnit1;
+        int defenseUnit2;
+        
+        if ( defenseDice1 >= defenseDice2 ) {
+            defenseUnit1 = defenseDice1;
+            defenseUnit2 = defenseDice2;
+        }
+        else {
+            defenseUnit1 = defenseDice2;
+            defenseUnit2 = defenseDice1;
+        }
+        
+        // Defining battle results
+        int attackUnits = 3;
+        int defenseUnits = 2;
+        
+        if ( attackUnit1 > defenseUnit1 ) {
+            defenseUnits--;
+        }
+        else {
+            attackUnits--;
+        }
+        if ( attackUnit2 > defenseUnit2 ) {
+            defenseUnits--;
+        }
+        else {
+            attackUnits--;
+        }
+        if ( attackDice3 == 0 ) {
+            attackUnits--;
+        }
+        if ( ( attackUnit2 == 0 ) && ( defenseUnit2 == 0 ) ) {
+            defenseUnits--;
+        }
+       
+       //returning attackUnits and defenseUnits joined using tenths and units
+       return attackUnits * 10 + defenseUnits;
+       
     }
     
     public void quitBattle(){

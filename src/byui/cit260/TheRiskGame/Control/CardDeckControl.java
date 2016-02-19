@@ -18,9 +18,9 @@ public class CardDeckControl implements Serializable {
     public void initializeDeck(){
     }
     
-    public Cards drawCard(){
+    //public Cards drawCard(){
     
-    }
+    //}
     
     
 }

@@ -43,6 +43,28 @@ public class StartProgramView {
      */
     public void displayStartProgramView() {
         System.out.println("/n*** displayStartProgramView function called ***");
+        
+        boolean done = false;  // set flag to not done
+        do { 
+        //Prompt for and get the players name 
+        String playersName = this.getPlayersName();
+        if (playersName.toUpperCase().equals("Q"))  //user wants to quit
+            return;  //exit game
+         
+        //do the action and display the next view 
+        done = this.doAction(playersName); 
+        
+        } while (!done);
+    }
+
+    private String getPlayersName() {
+        System.out.println("\n*** getPlayersName() called ***"); 
+        return "Joe";
+    }   
+
+    private boolean doAction(String playersName) {
+        System.out.println("\n*** doAction() called ***"); 
+        return true;
     }
     
 }

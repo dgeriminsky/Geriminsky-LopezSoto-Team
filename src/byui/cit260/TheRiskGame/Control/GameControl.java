@@ -5,6 +5,8 @@
  */
 package byui.cit260.TheRiskGame.Control;
 import byui.cit260.TheRiskGame.model.Game;
+import byui.cit260.TheRiskGame.model.Player;
+import theriskgame.TheRiskGame;
 
 /**
  *
@@ -24,7 +26,18 @@ public class GameControl {
     public void retrieveGame (String gameId){
     }
     
-    public void createNewPlayer(){
+    public static Player createPlayer(String playersName){
+        
+        if (playersName == null) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(playersName); // save the player
+        
+        TheRiskGame.setPlayer(player); // save player
+        
+        return player;
     }
     
     public void showTutorial(){

@@ -5,6 +5,10 @@
  */
 package byui.cit260.TheRiskGame.view;
 
+import byui.cit260.TheRiskGame.Control.GameControl;
+import byui.cit260.TheRiskGame.model.Player;
+import java.util.Scanner;
+
 /**
  *
  * @author LZ
@@ -13,7 +17,8 @@ public class StartProgramView {
     
     private String promptMessage;
     
-    public void StartProgramView() {
+    public StartProgramView() {
+        //System.out.println("\n*** StartProgramView() called ***");
         this.promptMessage = "\nPlease enter your name: ";
         //display the banner when view is created
         this.displayBanner();
@@ -59,13 +64,66 @@ public class StartProgramView {
     }     
 
     private String getPlayerName() {
-        System.out.println("\n*** getPlayerName() called ***");
-        return "Joe";
+        //System.out.println("\n*** getPlayerName() called ***");
+        //return "Joe";
+        
+        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+        
+        String value = ""; // value to be returned
+        boolean valid = false; // initialize to not vaid
+        
+        while (!valid) { // lop while an invaid value is enter
+            System.out.println("\n" + this.promptMessage);
+            
+            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = value.trim(); // trim off leading and trailing blanks
+            
+            if (value.length() < 1) { // value is blank
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            
+            break; // end the loop
+        }
+        
+        return value; // return the value entered        
     }
 
     private boolean doAction(String playersName) {
-        System.out.println("\n*** getPlayerName() called ***");
-        return true;
+        
+        if (playersName.length() < 2) {
+            System.out.println("\nInvalid players name: "
+                    + "The name must be grater than one character in length");
+            return false;
+        }
+        
+        // call createPlayer() control function
+        Player player = GameControl.createPlayer(playersName);
+        
+        if (player == null) { // if unsuccessful
+            System.out.println("\nError creating the player.");
+            return false;
+        }
+        
+        // display next view
+        this.displayNextView(player);
+        
+        return true; // success!
+    }
+
+    private void displayNextView(Player player) {
+        
+        // display a custom welcome message
+        System.out.println("\n============================================="
+                          + "\n Welcome to the game " + player.getName()
+                          + "\n We hope you got a lot of fun!"
+                          + "\n=============================================");
+        
+        // Create MainMenuView object
+        MainMenuView mainMenuView = new MainMenuView();
+        
+        // Display the main menu view
+        mainMenuView.displayMainMenuView();
     }
     
 }

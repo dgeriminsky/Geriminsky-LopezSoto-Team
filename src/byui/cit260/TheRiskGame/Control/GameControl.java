@@ -13,6 +13,10 @@ import theriskgame.TheRiskGame;
  * @author David
  */
 public class GameControl {
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n*** createNewGame function called ***");
+    }
     
     public void startNewGame(){
     }

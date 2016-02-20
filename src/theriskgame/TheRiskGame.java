@@ -5,6 +5,8 @@
  */
 package theriskgame;
 
+import byui.cit260.TheRiskGame.model.Game;
+import byui.cit260.TheRiskGame.model.Player;
 import byui.cit260.TheRiskGame.view.StartProgramView;
 
 /**
@@ -12,7 +14,26 @@ import byui.cit260.TheRiskGame.view.StartProgramView;
  * @author David
  */
 public class TheRiskGame {
+    
+    private static Game currentGame = null;
+    private static Player player = null;
 
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        TheRiskGame.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        TheRiskGame.player = player;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -20,7 +41,6 @@ public class TheRiskGame {
         
         // create StartProgramViewOrig and display the start program view
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayBanner();
         startProgramView.displayStartProgramView();
         
         

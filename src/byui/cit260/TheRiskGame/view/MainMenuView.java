@@ -106,7 +106,10 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        System.out.println("\n*** displayHelpMenu function called ***");
+                       
+        // display the game menu
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayHelpMenu();
     }
 
     private void saveGame() {

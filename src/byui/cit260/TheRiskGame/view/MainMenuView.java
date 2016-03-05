@@ -13,9 +13,11 @@ import theriskgame.TheRiskGame;
  *
  * @author LZ
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
-    private final String MENU = "\n"
+    //private final String MENU = "\n"
+    public MainMenuView() {
+        super ("\n"  
             + "\n--------------------------------------"
             + "\n| Main Menu                          |"
             + "\n--------------------------------------"
@@ -24,9 +26,11 @@ public class MainMenuView {
             + "\nH - Get help on how to play the game"
             + "\nS - Save game"
             + "\nE - Exit"
-            + "\n--------------------------------------";
-
-    public void displayMainMenu() {
+            + "\n--------------------------------------");
+    }
+            
+            
+    /*public void displayMainMenu() {
         //System.out.println("/n*** displayMainMenu() function called ***");
         
         char selection = ' ';
@@ -65,32 +69,33 @@ public class MainMenuView {
         }
         
         return value; // return the value entered
-    }
-
-    private void doAction(char choice) {
+    }*/
+    
+    @Override
+    public boolean doAction(String value) {
         
-        switch (choice) {
-            case 'N': // create and start a new game
+        switch (value) {
+            case "N": // create and start a new game
                 this.startNewGame();
                 break;
-            case 'G': // get and start an existing game
+            case "G": // get and start an existing game
                 this.startExistingGame();
                 break;
-            case 'H': // display the help menu
+            case "H": // display the help menu
                 this.displayHelpMenu();
                 break;
-            case 'S': // save the current game
+            case "S": // save the current game
                 this.saveGame();
                 break;
-            case 'E': // Exit the program
-                return;
+            case "E": // Exit the program
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
-                
+        return false;
     }
-
+   
     private void startNewGame() {
         
         // create a new game
@@ -98,7 +103,7 @@ public class MainMenuView {
         
         // display the game menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayGameMenu();
+        gameMenu.display();
     }
 
     private void startExistingGame() {
@@ -109,7 +114,8 @@ public class MainMenuView {
                        
         // display the game menu
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.display();
+                
     }
 
     private void saveGame() {

@@ -123,7 +123,7 @@ public class StartProgramView {
         MainMenuView mainMenuView = new MainMenuView();
         
         // Display the main menu view
-        mainMenuView.displayMainMenu();
+        mainMenuView.display();
     }
     
 }

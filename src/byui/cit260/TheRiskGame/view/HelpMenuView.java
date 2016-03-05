@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author LZ
  */
-public class HelpMenuView {
+public class HelpMenuView extends View {
     
-    private final String HELP = "\n"
+    public HelpMenuView() {
+        super ("\n"
             + "\n--------------------------------------"
             + "\n| Help Menu                          |"
             + "\n--------------------------------------"
@@ -23,9 +24,9 @@ public class HelpMenuView {
             + "\nB - How to battle"
             + "\nC - How to conquer territories"
             + "\nE - Exit help menu"
-            + "\n--------------------------------------";
-
-    void displayHelpMenu() {
+            + "\n--------------------------------------");
+    }
+    /*void displayHelpMenu() {
         
         char selection = ' ';
         do {
@@ -62,33 +63,34 @@ public class HelpMenuView {
         }
         
         return value; // return the value entered
-    }
+    }*/
     
-    private void doAction(char choice) {
+    @Override
+    public boolean doAction(String value) {
         
-        switch (choice) {
-            case 'G': // display the goal of the game
+        switch (value) {
+            case "G": // display the goal of the game
                 this.gameGoal();
                 break;
-            case 'R': // display the reinforcement tutorial
+            case "R": // display the reinforcement tutorial
                 this.reinforcementTutorial();
                 break;
-            case 'T': // display how to turn cards tutorial
+            case "T": // display how to turn cards tutorial
                 this.cardsTutorial();
                 break;
-            case 'B': // display the battle tutorial
+            case "B": // display the battle tutorial
                 this.battleTutorial();
                 break;
-            case 'C': // display the conquer territories tutorial
+            case "C": // display the conquer territories tutorial
                 this.conqueringTutorial();
                 break;
-            case 'E': // Exit the help menu
-                return;
+            case "E": // Exit the help menu
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
-                
+        return false;   
     }
 
     private void gameGoal() {

@@ -17,7 +17,7 @@ public class GameMenuView extends View {
    public GameMenuView() {
         super ("\n"
             + "\n--------------------------------------"
-            + "\n| Battle Menu                         |"
+            + "\n| Game Menu                         |"
             + "\n| Choose an action                    |"
             + "\n--------------------------------------"
             + "\nA - Attack a Territory!"
@@ -114,7 +114,9 @@ public class GameMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
+        // display the Save Screen
+        SaveGameView save = new SaveGameView();
+        save.display();
     }
 
     private void attackTerritory() {

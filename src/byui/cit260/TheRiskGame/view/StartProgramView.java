@@ -31,7 +31,7 @@ public class StartProgramView {
                 + "\n*                                                *"
                 + "\n* In the classic 'World Domination Risk' game of *"
                 + "\n* military strategy, you are battling to conquer *"
-                + "\n* the world. To win, you must lounch daring      *"
+                + "\n* the world. To win, you must launch daring      *"
                 + "\n* attacks, defend yourself on all fronts, and    *"
                 + "\n* sweep across vast continents with boldness and *"
                 + "\n* cunning. But remember, the dangers, as well as *"
@@ -93,7 +93,7 @@ public class StartProgramView {
         
         if (playersName.length() < 2) {
             System.out.println("\nInvalid players name: "
-                    + "The name must be grater than one character in length");
+                    + "The name must be greater than one character in length");
             return false;
         }
         
@@ -116,7 +116,7 @@ public class StartProgramView {
         // display a custom welcome message
         System.out.println("\n============================================="
                           + "\n Welcome to the game " + player.getName()
-                          + "\n We hope you got a lot of fun!"
+                          + "\n We hope you have a lot of fun!"
                           + "\n=============================================");
         
         // Create MainMenuView object

@@ -16,7 +16,7 @@ public class SaveGameView extends View {
             + "Enter a Save Game Name:");
     }
      
-     @Override
+    @Override
     public boolean doAction(String value) {
         
         if (value.length() < 2) {
@@ -29,6 +29,7 @@ public class SaveGameView extends View {
             return false;
         }
         else  {
+        System.out.println("\nCongratulations!  Game Saved Successfully.");
         this.saveToFile();
         return true;
         }
@@ -37,6 +38,7 @@ public class SaveGameView extends View {
 
     private void saveToFile() {
         System.out.println("\n*** SaveToFile function called ***");
+        //This will ultimately call game control and have that function 
     }
         
     

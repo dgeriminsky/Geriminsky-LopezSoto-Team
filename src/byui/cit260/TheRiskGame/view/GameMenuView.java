@@ -6,7 +6,7 @@
 package byui.cit260.TheRiskGame.view;
 import java.util.Scanner;
 import byui.cit260.TheRiskGame.Control.TurnControl;
-
+import byui.cit260.TheRiskGame.View.ReinforcementView;
 
 /**
  *
@@ -133,7 +133,8 @@ public class GameMenuView extends View {
 
     private void reinforceTerritory() {
         
-        
+        ReinforcementView reinforce = new ReinforcementView();
+        reinforce.display();    
  //       TurnControl reinforcement = TurnControl.getReinforcementUnits(territory, continent);
   //      reinforcement.getReinforcementUnits(int territories, double continents);
         

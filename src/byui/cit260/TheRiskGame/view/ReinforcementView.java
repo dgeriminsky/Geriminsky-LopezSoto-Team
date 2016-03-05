@@ -4,51 +4,41 @@
  * and open the template in the editor.
  */
 package byui.cit260.TheRiskGame.View;
-import byui.cit260.TheRiskGame.Control.TurnControl;
-import java.util.Scanner;
 
 /**
  *
- * @author David
+ * @author David Geriminsky
  */
-public class ReinforcementView {
+public class ReinforcementView extends byui.cit260.TheRiskGame.view.View{
+   
+   
+        public ReinforcementView() {
+        super ("\n"  
+            + "How many Territories do you own?:");
+    }
     
-    private int getInput() {
-        int territory = 0;
+    @Override
+    public boolean doAction(String value) {
         
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        
-        String value = ""; // value to be returned
-        boolean valid = false; // initialize to not vaid
-        
-        while (!valid) { // lop while an invaid value is enter
-            System.out.println("\n How many Territories do you own?: ");
-            
-           value = keyboard.nextLine(); // get next line typed on keyboard
-           value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; // end the loop
+        if (value.length() < 2) {
+            System.out.println("\nInvalid entry: The name must be greater than one character in length");
+            return false;
         }
-        //value = territory;
-        return territory; // return the value entered
         
-        
-        
-    }
-    public void displayReinforcementView() {
-       
-        int reinforcements = 0;
-        //reinforcements = TurnControl.getReinforcementUnits(int getInput(), 0);
-        System.out.println(reinforcements);
-    }
-        
- 
-        
+        else if (value.length() > 10) {
+            System.out.println("\nInvalid entry: The name must be 41 or less characters in length");
+            return false;
+        }
+        else  {
+        System.out.println("\nCongratulations!  Reinforcements Awarded.");
+        this.reinforce();
+        return true;
+        }
+      
+        }
 
-
-}
+    private void reinforce() {
+          System.out.println("\n*** Reinforcements function called in Control Layer ***");
+    }
+        
+ }

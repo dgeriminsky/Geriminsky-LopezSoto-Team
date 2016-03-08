@@ -12,17 +12,26 @@ import java.util.Objects;
  *
  * @author LZ
  */
-public class Continent implements Serializable {
+public enum Continent implements Serializable {
     
-    //class instance variables
-    private String name;
-    private int numberOfTerritories;
-    private int numberOfReinforcements;
+    NorthAmerica(5),
+    SouthAmerica(2),
+    Africa(3),
+    Asia(7),
+    Europe(5),
+    Australia(2);
 
-    public Continent() {
+    //class instance variables
+    // private String name;
+    //private final int numberOfTerritories;
+    private final int numberOfReinforcements;
+
+    Continent(int numberOfReinforcements) {
+        //this.numberOfTerritories = numberOfTerritories;
+        this.numberOfReinforcements = numberOfReinforcements;
     }
 
-    public String getName() {
+  /*  public String getName() {
         return name;
     }
 
@@ -37,15 +46,15 @@ public class Continent implements Serializable {
     public void setNumberOfTerritories(int numberOfTerritories) {
         this.numberOfTerritories = numberOfTerritories;
     }
-
+*/
     public int getNumberOfReinforcements() {
         return numberOfReinforcements;
     }
 
-    public void setNumberOfReinforcements(int numberOfReinforcements) {
-        this.numberOfReinforcements = numberOfReinforcements;
-    }
-
+//    public void setNumberOfReinforcements(int numberOfReinforcements) {
+//        this.numberOfReinforcements = numberOfReinforcements;
+//    }
+/*
     @Override
     public int hashCode() {
         int hash = 7;
@@ -83,7 +92,7 @@ public class Continent implements Serializable {
     public String toString() {
         return "Continent{" + "name=" + name + ", numberOfTerritories=" + numberOfTerritories + ", numberOfReinforcements=" + numberOfReinforcements + '}';
     }
-
+*/
    
     
 }

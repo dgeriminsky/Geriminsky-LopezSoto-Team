@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 package byui.cit260.TheRiskGame.Control;
+import byui.cit260.TheRiskGame.model.CardsDeck;
 import byui.cit260.TheRiskGame.model.Game;
+import byui.cit260.TheRiskGame.model.Map;
 import byui.cit260.TheRiskGame.model.Player;
+import byui.cit260.TheRiskGame.view.StartProgramView;
 import theriskgame.TheRiskGame;
 
 /**
@@ -15,7 +18,39 @@ import theriskgame.TheRiskGame;
 public class GameControl {
 
     public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame function called ***");
+        
+        Game game = new Game(); // create new game
+        TheRiskGame.setCurrentGame(game); //save in the risk game
+        
+        //create Map
+        
+        Map map = new Map(); // create new map
+        game.setMap(map); // save the map
+        
+        // create the player
+                    
+       Player[] playerList = GameControl.createPlayerList();  // create the player
+       game.setPlayer(playerList);  // save player
+        
+       // create care deck
+       CardsDeck cardsDeck = new CardsDeck();
+       game.setCardsDeck(cardsDeck);  // save card deck to game
+        
+    }
+
+    private static Player[] createPlayerList() {
+        
+      Player[] player = new Player[2];
+        
+       Player player1 = new Player();
+       player1.setName("David");
+       player[0] = player1;
+       
+       Player player2 = new Player();
+       player2.setName("Lehi");
+       player[1] = player2;
+       
+       return player;
     }
     
     public void startNewGame(){

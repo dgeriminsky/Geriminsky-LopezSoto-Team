@@ -16,7 +16,7 @@ public class Player implements Serializable{
     
     //Class Instance Variables
     private String name;
-    private String description;
+
 
     public Player() {
     } 
@@ -29,24 +29,16 @@ public class Player implements Serializable{
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", description=" + description + '}';
+        return "Player Name= " + name ;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 97 * hash + Objects.hashCode(this.name);
-        hash = 97 * hash + Objects.hashCode(this.description);
+        
         return hash;
     }
 
@@ -65,9 +57,7 @@ public class Player implements Serializable{
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
+
         return true;
     }
     

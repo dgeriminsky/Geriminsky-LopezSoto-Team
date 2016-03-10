@@ -18,6 +18,9 @@ public class Map implements Serializable{
     private double columnCount;
 
     public Map() {
+        this.columnCount =  20;
+        this.rowCount = 20;
+        System.out.println("\n*** createMap function called ***");
     }
     
     public double getRowCount() {

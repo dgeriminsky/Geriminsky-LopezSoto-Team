@@ -18,6 +18,9 @@ public class CardsDeck implements Serializable {
     private int numberOfCards;
 
     public CardsDeck() {
+        
+        this.numberOfCards = 44;
+        
     }
     
     public int getNumberOfCards() {

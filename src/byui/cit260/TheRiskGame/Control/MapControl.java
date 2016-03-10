@@ -5,6 +5,8 @@
  */
 package byui.cit260.TheRiskGame.Control;
 
+import byui.cit260.TheRiskGame.model.Map;
+
 /**
  *
  * @author David
@@ -12,6 +14,16 @@ package byui.cit260.TheRiskGame.Control;
 public class MapControl {
     
     //initialize class variables
+    
+    public static Map createMap() {
+    
+      
+        Map map = new Map();
+        
+        return map;
+    
+    }
+    
     
     public void moveArmy(String originTerritory, String destinationTerritory){
     }

@@ -17,7 +17,9 @@ public class Game implements Serializable{
     private double totalTime;
     private double noPlayer;
     private Player[] player;
-    private Map map;
+
+
+    private static Map map;
     private CardsDeck cardsDeck;
         
         
@@ -40,12 +42,12 @@ public class Game implements Serializable{
         this.noPlayer = noPlayer;
     }
     
-    public Map getMap() {
+    public static Map getMap() {
         return map;
     }
 
-    public void setMap(Map map) {
-        this.map = map;
+    public static void setMap(Map map) {
+        Game.map = map;
     }
         
     public Player[] getPlayer() {

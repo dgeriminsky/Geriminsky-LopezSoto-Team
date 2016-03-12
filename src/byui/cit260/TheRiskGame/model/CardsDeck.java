@@ -20,7 +20,7 @@ public class CardsDeck implements Serializable {
     public CardsDeck() {
         
         this.numberOfCards = 44;
-        
+        System.out.println("\n*** Card Deck created with " + numberOfCards + " cards ***");
     }
     
     public int getNumberOfCards() {

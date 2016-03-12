@@ -19,7 +19,7 @@ public class MapControl {
     
       
         Map map = new Map();
-        
+  
         return map;
     
     }

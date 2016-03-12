@@ -10,14 +10,14 @@ import java.util.Objects;
 
 /**
  *
- * @author LZ
+ * @author DGeriminsky LLopez
  */
 public class Territory implements Serializable {
     
-    //class instance variables
+     //class instance variables
     private String name;
-    private int row;
-    private char column;
+    //private int row;
+    //private char column;
     private String owner;
     private int garrisonSize;
 
@@ -31,7 +31,7 @@ public class Territory implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
+/*
     public int getRow() {
         return row;
     }
@@ -47,7 +47,7 @@ public class Territory implements Serializable {
     public void setColumn(char column) {
         this.column = column;
     }
-
+ */
     public String getOwner() {
         return owner;
     }
@@ -68,8 +68,8 @@ public class Territory implements Serializable {
     public int hashCode() {
         int hash = 7;
         hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + this.row;
-        hash = 89 * hash + this.column;
+    //    hash = 89 * hash + this.row;
+    //    hash = 89 * hash + this.column;
         hash = 89 * hash + Objects.hashCode(this.owner);
         hash = 89 * hash + this.garrisonSize;
         return hash;
@@ -87,12 +87,14 @@ public class Territory implements Serializable {
             return false;
         }
         final Territory other = (Territory) obj;
+     /* 
         if (this.row != other.row) {
             return false;
         }
         if (this.column != other.column) {
             return false;
         }
+         */
         if (this.garrisonSize != other.garrisonSize) {
             return false;
         }
@@ -107,7 +109,7 @@ public class Territory implements Serializable {
 
     @Override
     public String toString() {
-        return "Territory{" + "name=" + name + ", row=" + row + ", column=" + column + ", owner=" + owner + ", garrisonSize=" + garrisonSize + '}';
+        return "Territory{" + "name=" + name + ", owner=" + owner + ", garrisonSize=" + garrisonSize + '}';
     }
     
     

@@ -32,7 +32,7 @@ public class GameControl {
        Player[] playerList = GameControl.createPlayerList();  // create the player
        game.setPlayer(playerList);  // save player
         
-       // create care deck
+       // create card deck
        CardsDeck cardsDeck = new CardsDeck();
        game.setCardsDeck(cardsDeck);  // save card deck to game
         
@@ -43,12 +43,14 @@ public class GameControl {
       Player[] player = new Player[2];
         
        Player player1 = new Player();
-       player1.setName("David");
+       player1.setName("Mahonri");
        player[0] = player1;
+       System.out.println("\n*** Player1 - " + player1.getName() + " created ***");
        
        Player player2 = new Player();
        player2.setName("Lehi");
        player[1] = player2;
+       System.out.println("\n*** Player2 - " + player2.getName() + " created ***");
        
        return player;
     }

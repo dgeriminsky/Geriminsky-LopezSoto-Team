@@ -3,16 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/LZ/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/src/byui/cit260/TheRiskGame/model/Player.java</file>
-            <file>file:/C:/Users/LZ/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/test/byui/cit260/TheRiskGame/Control/BattleControlTest.java</file>
-            <file>file:/C:/Users/LZ/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/src/byui/cit260/TheRiskGame/Control/GameControl.java</file>
-            <file>file:/C:/Users/LZ/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/src/byui/cit260/TheRiskGame/view/StartProgramView.java</file>
-            <file>file:/C:/Users/LZ/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/LZ/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/src/byui/cit260/TheRiskGame/model/Cards.java</file>
-            <file>file:/C:/Users/LZ/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/test/byui/cit260/TheRiskGame/Control/TurnControlTest.java</file>
-            <file>file:/C:/Users/LZ/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/src/theriskgame/TheRiskGame.java</file>
-            <file>file:/C:/Users/LZ/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/src/byui/cit260/TheRiskGame/Control/TurnControl.java</file>
-            <file>file:/C:/Users/LZ/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/src/byui/cit260/TheRiskGame/Control/CardDeckControl.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/src/byui/cit260/TheRiskGame/view/ReinforcementView.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/src/byui/cit260/TheRiskGame/view/MainMenuView.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Geriminsky-LopezSoto-Team/src/byui/cit260/TheRiskGame/view/SaveGameView.java</file>
         </group>
     </open-files>
 </project-private>

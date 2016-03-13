@@ -17,15 +17,20 @@ import theriskgame.TheRiskGame;
  */
 public class GameControl {
 
+    /**
+     *
+     * @param player
+     */
     public static void createNewGame(Player player) {
         
         Game game = new Game(); // create new game
-        TheRiskGame.setCurrentGame(game); //save in the risk game
+        //TheRiskGame.setCurrentGame(game); //save in the risk game
         
         //create Map
         
         Map map = new Map(); // create new map
         game.setMap(map); // save the map
+        
         
         // create the player
                     
@@ -35,7 +40,8 @@ public class GameControl {
        // create card deck
        CardsDeck cardsDeck = new CardsDeck();
        game.setCardsDeck(cardsDeck);  // save card deck to game
-        
+       
+       TheRiskGame.setCurrentGame(game);
     }
 
     private static Player[] createPlayerList() {

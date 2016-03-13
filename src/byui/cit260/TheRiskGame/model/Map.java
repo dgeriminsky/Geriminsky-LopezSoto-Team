@@ -24,71 +24,74 @@ public class Map implements Serializable{
     public Map() {
     //    this.columnCount =  20;
     //    this.rowCount = 20;
-    String[] Territory;
-    Territory = new String[42];
+    String[] territory;
+    territory = new String[42];
     
-    Territory[0] = "Alaska";
-    Territory[1] = "Northwest Territory";
-    Territory[2] = "Alberta";
-    Territory[3] = "Ontario";
-    Territory[4] = "Greenland";
-    Territory[5] = "Quebec";
-    Territory[6] = "W. United States";
-    Territory[7] = "E. United States";
-    Territory[8] = "Central America";
-    Territory[9] = "Venezuela";
-    Territory[10] = "Peru";
-    Territory[11] = "Brazil";
-    Territory[12] = "Argentina";
-    Territory[13] = "N. Africa";
-    Territory[14] = "Egypt";
-    Territory[15] = "Congo";
-    Territory[16] = "E. Africa";
-    Territory[17] = "Madagascar";
-    Territory[18] = "S. Africa";
-    Territory[19] = "Iceland";
-    Territory[20] = "Scandinavia";
-    Territory[21] = "Great Britain";
-    Territory[22] = "W. Europe";
-    Territory[23] = "N. Europe";
-    Territory[24] = "S. Europe";
-    Territory[25] = "Ukraine";
-    Territory[26] = "Middle East";
-    Territory[27] = "Afghanistan";
-    Territory[28] = "Ural";
-    Territory[29] = "India";
-    Territory[30] = "Siam";
-    Territory[31] = "China";
-    Territory[32] = "Siberia";
-    Territory[33] = "Yakutsk";
-    Territory[34] = "Irkutsk";
-    Territory[35] = "Mongolia";
-    Territory[36] = "Japan";
-    Territory[37] = "Kamachatka";
-    Territory[38] = "Indonesia";
-    Territory[39] = "New Guinea";
-    Territory[40] = "E. Australia";
-    Territory[41] = "W. Australia";
+    territory[0] = "Alaska";
+    territory[1] = "Northwest Territory";
+    territory[2] = "Alberta";
+    territory[3] = "Ontario";
+    territory[4] = "Greenland";
+    territory[5] = "Quebec";
+    territory[6] = "W. United States";
+    territory[7] = "E. United States";
+    territory[8] = "Central America";
+    territory[9] = "Venezuela";
+    territory[10] = "Peru";
+    territory[11] = "Brazil";
+    territory[12] = "Argentina";
+    territory[13] = "N. Africa";
+    territory[14] = "Egypt";
+    territory[15] = "Congo";
+    territory[16] = "E. Africa";
+    territory[17] = "Madagascar";
+    territory[18] = "S. Africa";
+    territory[19] = "Iceland";
+    territory[20] = "Scandinavia";
+    territory[21] = "Great Britain";
+    territory[22] = "W. Europe";
+    territory[23] = "N. Europe";
+    territory[24] = "S. Europe";
+    territory[25] = "Ukraine";
+    territory[26] = "Middle East";
+    territory[27] = "Afghanistan";
+    territory[28] = "Ural";
+    territory[29] = "India";
+    territory[30] = "Siam";
+    territory[31] = "China";
+    territory[32] = "Siberia";
+    territory[33] = "Yakutsk";
+    territory[34] = "Irkutsk";
+    territory[35] = "Mongolia";
+    territory[36] = "Japan";
+    territory[37] = "Kamachatka";
+    territory[38] = "Indonesia";
+    territory[39] = "New Guinea";
+    territory[40] = "E. Australia";
+    territory[41] = "W. Australia";
     
     this.territoryList = new Territory[42];
     
+        
+        
         for (int i = 0; i < 42; i++){
     
-            Territory territory = new Territory();
-            territory.setName(Territory[i]);
-            territory.setGarrisonSize(5);
-         if (i % 2 == 0){
-                territory.setOwner("Mahonri");
+            Territory territory1 = new Territory();
+            territory1.setName(territory[i]);
+            territory1.setGarrisonSize(5);
+            if (i % 2 == 0){
+                territory1.setOwner("Mahonri");
             }
-         else {
-                territory.setOwner("Lehi");
+            else {
+                territory1.setOwner("Lehi");
             }
         
+            territoryList[i] = territory1;
         }
-          System.out.println("\n*** Map created ***");
-          
-          
-          
+          //System.out.println("\n*** Map created ***");
+          //System.out.println("\n " + territory[39]);
+          //System.out.println("\n " + territoryList[10].getName());
+                  
           
         
     }

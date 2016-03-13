@@ -17,13 +17,12 @@ public class Game implements Serializable{
     private double totalTime;
     private double noPlayer;
     private Player[] player;
-
-
     private static Map map;
     private CardsDeck cardsDeck;
         
         
     public Game() {
+        
     }
     
     public double getTotalTime() {
@@ -42,11 +41,11 @@ public class Game implements Serializable{
         this.noPlayer = noPlayer;
     }
     
-    public static Map getMap() {
+    public Map getMap() {
         return map;
     }
 
-    public static void setMap(Map map) {
+    public void setMap(Map map) {
         Game.map = map;
     }
         
@@ -66,39 +65,7 @@ public class Game implements Serializable{
         this.cardsDeck = cardsDeck;
     }
 
-    @Override
-    public String toString() {
-        return "Game{" + "totalTime=" + totalTime + ", noPlayer=" + noPlayer + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.noPlayer) ^ (Double.doubleToLongBits(this.noPlayer) >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Game other = (Game) obj;
-        if (Double.doubleToLongBits(this.totalTime) != Double.doubleToLongBits(other.totalTime)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.noPlayer) != Double.doubleToLongBits(other.noPlayer)) {
-            return false;
-        }
-        return true;
-    }
+    
     
     
     

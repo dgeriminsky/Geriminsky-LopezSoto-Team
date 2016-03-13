@@ -15,7 +15,7 @@ public class MapControl {
     
     //initialize class variables
     
-    public static Map createMap() {
+    public Map createMap() {
     
       
         Map map = new Map();

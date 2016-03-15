@@ -6,7 +6,11 @@
 package byui.cit260.TheRiskGame.view;
 import java.util.Scanner;
 import byui.cit260.TheRiskGame.Control.TurnControl;
-import byui.cit260.TheRiskGame.View.ReinforcementView;
+import byui.cit260.TheRiskGame.Control.GameControl;
+import byui.cit260.TheRiskGame.model.Territory;
+import byui.cit260.TheRiskGame.model.Map;
+import byui.cit260.TheRiskGame.model.Game;
+import theriskgame.TheRiskGame;
 
 /**
  *
@@ -129,12 +133,21 @@ public class GameMenuView extends View {
 
     private void viewMap() {
         System.out.println("\n*** viewMap function called ***");
+        Game game = TheRiskGame.getCurrentGame();
+        Map map = game.getMap();
+        Territory[] territoryList = map.getTerritoryList();
+        
+        for (int i = 0; i < 42; i++) {
+            System.out.println(territoryList[i].getName()
+                +"\t " + territoryList[i].getOwner()
+                +"\t " + territoryList[i].getGarrisonSize());
+        }
     }
 
     private void reinforceTerritory() {
         
-        ReinforcementView reinforce = new ReinforcementView();
-        reinforce.display();    
+        //ReinforcementView reinforce = new ReinforcementView();
+        //reinforce.display();    
  //       TurnControl reinforcement = TurnControl.getReinforcementUnits(territory, continent);
   //      reinforcement.getReinforcementUnits(int territories, double continents);
         
@@ -144,7 +157,6 @@ public class GameMenuView extends View {
     private void endTurn() {
         System.out.println("\n*** endTurn function called ***");
     }
-    
-    
+        
     
 }

@@ -105,6 +105,21 @@ public class GameControl {
     public void endGame(){
     }
     
+    public void highScore(){
+        
+        int[] scores = {16,200,2589,23,664,1};
+        int highest = 0;
+        
+        for(int i =0; i<scores.length; i++) {
+            if(scores[i] > highest) {
+                highest = scores[i];
+            }
+        }
+        System.out.println("This Code Generated as an example of how to process an array and find the largest value");
+        System.out.println("The High Score So far is: " +highest);
+        
+    }
+    
             
             
             

@@ -25,6 +25,7 @@ public class MainMenuView extends View {
             + "\nG - Get and start a saved game"
             + "\nH - Get help on how to play the game"
             + "\nS - Save game"
+            + "\nF - Find High Score"
             + "\nE - Exit"
             + "\n--------------------------------------");
     }
@@ -87,6 +88,9 @@ public class MainMenuView extends View {
             case "S": // save the current game
                 this.saveGame();
                 break;
+            case "F": // Calculate Average High Score
+                this.calcScore();
+                break;
             case "E": // Exit the program
                 return true;
             default:
@@ -122,6 +126,15 @@ public class MainMenuView extends View {
        // display the Save Screen
         SaveGameView save = new SaveGameView();
         save.display();
+    }
+
+    private void calcScore() {
+        
+        GameControl highScore = new GameControl();
+        highScore.highScore();
+
+
+   
     }
     
 }

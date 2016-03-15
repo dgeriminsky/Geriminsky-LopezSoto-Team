@@ -5,13 +5,33 @@
  */
 package byui.cit260.TheRiskGame.Control;
 
+import byui.cit260.TheRiskGame.model.Territory;
+
 /**
  *
  * @authors David Geriminsky and Lehi Lopez
  */
 public class TurnControl {
+
+    public TurnControl() {
+    }
+    
+    
     
     //initialize class variables
+    
+    
+    
+    public int getTotalUnitsPerPlayer(String playerName, Territory[] territoryList) {
+        
+        int totalUnitsPerPlayer = 0;
+        for (Territory territory: territoryList) {            
+            if ( territory.getOwner().equals(playerName)) {
+                totalUnitsPerPlayer += territory.getGarrisonSize();
+            }
+        }
+        return totalUnitsPerPlayer;
+    }
     
     public int getReinforcementUnits(int territoriesOwned, int unitsFromContinents){
         int unitT;

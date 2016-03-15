@@ -183,12 +183,31 @@ public class GameMenuView extends View {
         Game game = TheRiskGame.getCurrentGame();
         Map map = game.getMap();
         Territory[] territoryList = map.getTerritoryList();
-        
+        /*
         for (int i = 0; i < 42; i++) {
             System.out.println(territoryList[i].getName()
                 +"\t " + territoryList[i].getOwner()
                 +"\t " + territoryList[i].getGarrisonSize());
+        }*/
+        
+        for (Territory territory: territoryList) {
+            System.out.println(territory.getName()
+                +"\t " + territory.getOwner()
+                +"\t " + territory.getGarrisonSize());
         }
+        TurnControl turnControl = new TurnControl();
+        
+        
+        System.out.println("\n Total Number of Units per Pleyer:"
+                + "\n David has a total of " 
+                + turnControl.getTotalUnitsPerPlayer("David", territoryList) 
+                + " army units");
+        System.out.println("Lehi has a total of " 
+                + turnControl.getTotalUnitsPerPlayer("Lehi", territoryList) 
+                + " army units");
+        System.out.println("Mahonri has a total of " 
+                + turnControl.getTotalUnitsPerPlayer("Mahonri", territoryList) 
+                + " army units");
     }
 
     private void reinforceTerritory() {

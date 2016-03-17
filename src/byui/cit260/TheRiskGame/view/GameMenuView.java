@@ -34,6 +34,7 @@ public class GameMenuView extends View {
             + "\nS - Save game"
             + "\nX - Exception test for reinforcements"
             + "\nY - Exception test for cards reinforcements"
+            + "\nZ - String to Double with exception"
             + "\nE - Exit"
             + "\n--------------------------------------");
     }
@@ -109,6 +110,9 @@ public class GameMenuView extends View {
                 break;
             case "Y": // Throw Exceptions View
                 this.exceptionTest2();
+                break;
+            case "Z": // Throw Exceptions View
+                this.exceptionTest3();
                 break;
             case "E": // Exit the program
                 return true;
@@ -233,13 +237,18 @@ public class GameMenuView extends View {
         System.out.println("\n*** endTurn function called ***");
     }
 
-    private void exceptionTest() throws TurnControlException{
+    private void exceptionTest() throws Exception{
         ThrowExceptionAssignmentView testing = new ThrowExceptionAssignmentView();
         testing.reinforce();
     }
         
-    private void exceptionTest2() throws TurnControlException{
+    private void exceptionTest2() throws Exception{
         ThrowExceptionAssignmentView testing = new ThrowExceptionAssignmentView();
         testing.cardReinforce();
+    }
+
+    private void exceptionTest3() throws Exception{
+        ThrowExceptionAssignmentView testing = new ThrowExceptionAssignmentView();
+        testing.getDoubleNumber();
     }
 }

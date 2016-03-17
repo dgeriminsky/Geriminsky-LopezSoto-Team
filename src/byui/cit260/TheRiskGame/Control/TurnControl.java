@@ -51,8 +51,7 @@ public class TurnControl {
         if (unitsFromContinents >22){
         throw new TurnControlException("You are obviously cheating as you cant have more than 22 Reinforcements from continents.");
         }
-        
-        
+                        
     // find amount of units player receives based on territories owned
     unitT = territoriesOwned / 3;
         

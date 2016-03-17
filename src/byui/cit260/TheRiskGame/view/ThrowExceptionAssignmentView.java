@@ -32,10 +32,26 @@ public class ThrowExceptionAssignmentView {
          } catch (TurnControlException me){
             System.out.println(me.getMessage());
             } 
-        }while (turnAround== false);
-        
-        }
+        }while (turnAround== false);        
+    }
 
- 
+    public void cardReinforce() throws TurnControlException{
+        int amount = 0;
+        Scanner input = new Scanner(System.in);
+        boolean turnAround = false;
+        do{
+            System.out.println("\nEnter the current Card Exchange turn: ");
+            int cardExchangeTurn = input.nextInt();
+        
+            TurnControl cardReinforcement = new TurnControl();
+            try{ 
+                amount = cardReinforcement.getCardReinforcementUnits(cardExchangeTurn);
+                System.out.println("\nYou get " + amount + " reinforcements");
+                turnAround = true;
+            }   catch (TurnControlException me){
+                    System.out.println(me.getMessage());
+                } 
+        }while (turnAround== false);      
     
+    }
 }

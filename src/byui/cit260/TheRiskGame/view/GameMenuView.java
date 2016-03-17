@@ -33,6 +33,7 @@ public class GameMenuView extends View {
             + "\nH - Display Help Menu"          
             + "\nS - Save game"
             + "\nX - Exception test for reinforcements"
+            + "\nY - Exception test for cards reinforcements"
             + "\nE - Exit"
             + "\n--------------------------------------");
     }
@@ -105,6 +106,9 @@ public class GameMenuView extends View {
                 break;
             case "X": // Throw Exceptions View
                 this.exceptionTest();
+                break;
+            case "Y": // Throw Exceptions View
+                this.exceptionTest2();
                 break;
             case "E": // Exit the program
                 return true;
@@ -234,5 +238,8 @@ public class GameMenuView extends View {
         testing.reinforce();
     }
         
-    
+    private void exceptionTest2() throws TurnControlException{
+        ThrowExceptionAssignmentView testing = new ThrowExceptionAssignmentView();
+        testing.cardReinforce();
+    }
 }

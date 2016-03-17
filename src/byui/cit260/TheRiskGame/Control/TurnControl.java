@@ -68,12 +68,15 @@ public class TurnControl {
                 
     }
     
-    public int getCardReinforcementUnits(int cardExchangeTurn){
+    public int getCardReinforcementUnits(int cardExchangeTurn)
+                    throws TurnControlException {
     
     int cardReinforcementUnits;
         
         if (cardExchangeTurn <= 0){
-        return -999;
+            throw new TurnControlException("You have entered zero or "
+                    + "a negative turn. "
+                    + "Please try again.");
         }
         else if (cardExchangeTurn == 1){
             cardReinforcementUnits = 4;

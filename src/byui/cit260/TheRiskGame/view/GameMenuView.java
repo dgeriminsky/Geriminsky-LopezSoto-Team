@@ -7,6 +7,7 @@ package byui.cit260.TheRiskGame.view;
 import java.util.Scanner;
 import byui.cit260.TheRiskGame.Control.TurnControl;
 import byui.cit260.TheRiskGame.Control.GameControl;
+import byui.cit260.TheRiskGame.exceptions.TurnControlException;
 import byui.cit260.TheRiskGame.model.Territory;
 import byui.cit260.TheRiskGame.model.Map;
 import byui.cit260.TheRiskGame.model.Game;
@@ -31,6 +32,7 @@ public class GameMenuView extends View {
             + "\nT - End Turn and Draw Card"
             + "\nH - Display Help Menu"          
             + "\nS - Save game"
+            + "\nX - Exception test for reinforcements"
             + "\nE - Exit"
             + "\n--------------------------------------");
     }
@@ -77,7 +79,7 @@ public class GameMenuView extends View {
     }*/
 
     @Override
-    public boolean doAction(String value) {
+    public boolean doAction(String value) throws Exception{
         
         switch (value) {
             case "A": // Attack a Territory
@@ -101,6 +103,9 @@ public class GameMenuView extends View {
             case "S": // save the current game
                 this.saveGame();
                 break;
+            case "X": // Throw Exceptions View
+                this.exceptionTest();
+                break;
             case "E": // Exit the program
                 return true;
             default:
@@ -110,14 +115,14 @@ public class GameMenuView extends View {
         return false;
     }
 
-    private void displayHelpMenu() {
+    private void displayHelpMenu() throws Exception{
                       
         // display the help menu
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();
     }
 
-    private void saveGame() {
+    private void saveGame() throws Exception {
         // display the Save Screen
         SaveGameView save = new SaveGameView();
         save.display();
@@ -222,6 +227,11 @@ public class GameMenuView extends View {
 
     private void endTurn() {
         System.out.println("\n*** endTurn function called ***");
+    }
+
+    private void exceptionTest() throws TurnControlException{
+        ThrowExceptionAssignmentView testing = new ThrowExceptionAssignmentView();
+        testing.reinforce();
     }
         
     

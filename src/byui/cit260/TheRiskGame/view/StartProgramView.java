@@ -46,7 +46,7 @@ public class StartProgramView {
     /**
      * display the start program view
      */
-    public void displayStartProgramView() {
+    public void displayStartProgramView() throws Exception {
         //System.out.println("/n*** displayStartProgramView function called ***");
         
         boolean done = false; // set flag to not done
@@ -89,7 +89,7 @@ public class StartProgramView {
         return value; // return the value entered        
     }
 
-    private boolean doAction(String playersName) {
+    private boolean doAction(String playersName) throws Exception{
         
         if (playersName.length() < 2) {
             System.out.println("\nInvalid players name: "
@@ -111,7 +111,7 @@ public class StartProgramView {
         return true; // success!
     }
 
-    private void displayNextView(Player player) {
+    private void displayNextView(Player player) throws Exception{
         
         // display a custom welcome message
         System.out.println("\n============================================="

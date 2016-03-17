@@ -10,6 +10,7 @@ import byui.cit260.TheRiskGame.model.Map;
 import byui.cit260.TheRiskGame.model.Player;
 import byui.cit260.TheRiskGame.view.StartProgramView;
 import theriskgame.TheRiskGame;
+import java.util.*;
 
 /**
  *
@@ -106,7 +107,9 @@ public class GameControl {
     }
     
     public void highScore(){
-        
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter Your HighScore");
+        int playerScore = input.nextInt();
         int[] scores = {16,200,2589,23,664,1};
         int highest = 0;
         
@@ -114,6 +117,7 @@ public class GameControl {
             if(scores[i] > highest) {
                 highest = scores[i];
             }
+            
         }
         System.out.println("This Code Generated as an example of how to process an array and find the largest value");
         System.out.println("The High Score So far is: " +highest);

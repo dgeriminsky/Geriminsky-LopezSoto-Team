@@ -73,7 +73,7 @@ public class MainMenuView extends View {
     }*/
     
     @Override
-    public boolean doAction(String value) {
+    public boolean doAction(String value) throws Exception {
         
         switch (value) {
             case "N": // create and start a new game
@@ -100,7 +100,7 @@ public class MainMenuView extends View {
         return false;
     }
    
-    private void startNewGame() {
+    private void startNewGame() throws Exception{
         
         // create a new game
         GameControl.createNewGame(TheRiskGame.getPlayer());
@@ -114,7 +114,7 @@ public class MainMenuView extends View {
         System.out.println("\n*** startExistingGame function called ***");
     }
 
-    private void displayHelpMenu() {
+    private void displayHelpMenu() throws Exception {
                        
         // display the game menu
         HelpMenuView helpMenu = new HelpMenuView();
@@ -122,7 +122,7 @@ public class MainMenuView extends View {
                 
     }
 
-    private void saveGame() {
+    private void saveGame() throws Exception{
        // display the Save Screen
         SaveGameView save = new SaveGameView();
         save.display();

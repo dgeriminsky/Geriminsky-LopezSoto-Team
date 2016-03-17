@@ -23,7 +23,7 @@ public abstract class View implements ViewInterface {
     }
     
     @Override
-    public void display() {
+    public void display() throws Exception{
         
         boolean done = false;
         

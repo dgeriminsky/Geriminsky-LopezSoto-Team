@@ -11,8 +11,8 @@ package byui.cit260.TheRiskGame.view;
  */
 public interface ViewInterface {
     
-    public void display();
+    public void display() throws Exception;
     public String getInput();
-    public boolean doAction(String value);
+    public boolean doAction(String value) throws Exception;
     
 }

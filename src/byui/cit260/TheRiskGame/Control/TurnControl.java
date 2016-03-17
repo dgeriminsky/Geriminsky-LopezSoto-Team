@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package byui.cit260.TheRiskGame.Control;
-
+import java.util.*;
+import byui.cit260.TheRiskGame.exceptions.TurnControlException;
 import byui.cit260.TheRiskGame.model.Territory;
+import static jdk.nashorn.tools.ShellFunctions.input;
 
 /**
  *
@@ -33,19 +35,21 @@ public class TurnControl {
         return totalUnitsPerPlayer;
     }
     
-    public int getReinforcementUnits(int territoriesOwned, int unitsFromContinents){
+    public int getReinforcementUnits(int territoriesOwned, int unitsFromContinents)
+                    throws TurnControlException{
+        
         int unitT;
         
         if (territoriesOwned <=0){
-        return -999;
+        throw new TurnControlException("You have entered ZERO or less.  Try again.");
         }
         
         if (territoriesOwned < 4 && unitsFromContinents > 0){
-        return -999;
+        throw new TurnControlException("You have entered less than 4 territories but you own a continent.  Try again.");
         }
     
         if (unitsFromContinents >22){
-        return -999;
+        throw new TurnControlException("You are obviously cheating as you cant have more than 22 Reinforcements from continents.");
         }
         
         

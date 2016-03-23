@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.TheRiskGame.Control;
+import byui.cit260.TheRiskGame.exceptions.BattleControlException;
 
 /**
  *
@@ -24,22 +25,27 @@ public class BattleControl {
     //}
     
     public int defineBattleResult(int attackDice1, int attackDice2
-            , int attackDice3, int defenseDice1, int defenseDice2){
+            , int attackDice3, int defenseDice1, int defenseDice2)
+            throws BattleControlException{
         
         // Validation of inputs
         if ( attackDice1 > 6 || attackDice2 > 6 || attackDice3 > 6 ||
                 defenseDice1 > 6 || defenseDice2 > 6 ) {
-            return -1;
+            throw new BattleControlException("You have entered one or "
+                    + "more dice values bigger than six. Please try again.");
         }
         
         if ( attackDice1 < 0 || attackDice2 < 0 || attackDice3 < 0 ||
                 defenseDice1 < 0 || defenseDice2 < 0 ) {
-            return -1;
+            throw new BattleControlException("You have entered one or "
+                    + "more negative dice values. Please try again.");
         }
         
         if ( ( attackDice1 == 0 && attackDice2 == 0 && attackDice3 == 0 ) ||
                 ( defenseDice1 == 0 && defenseDice2 == 0 ) ) {
-            return -1;
+            throw new BattleControlException("You have entered all attack "
+                    + "dice values, or all defense values as zero. Please try "
+                    + "again.");
         }
         
         // Ordering attacking units

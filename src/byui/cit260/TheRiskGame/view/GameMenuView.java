@@ -85,7 +85,8 @@ public class GameMenuView extends View {
         
         switch (value) {
             case "A": // Attack a Territory
-                this.attackTerritory();
+                //this.attackTerritory();
+                this.exceptionTest4();                        
                 break;
             case "M": // get and start an existing game
                 this.moveUnits();
@@ -211,7 +212,7 @@ public class GameMenuView extends View {
         TurnControl turnControl = new TurnControl();
         
         
-        System.out.println("\n Total Number of Units per Pleyer:"
+        System.out.println("\n Total Number of Units per Player:"
                 + "\n David has a total of " 
                 + turnControl.getTotalUnitsPerPlayer("David", territoryList) 
                 + " army units");
@@ -223,7 +224,7 @@ public class GameMenuView extends View {
                 + " army units");
     }
 
-    private void reinforceTerritory() {
+    private void reinforceTerritory() { 
         
         //ReinforcementView reinforce = new ReinforcementView();
         //reinforce.display();    
@@ -250,5 +251,10 @@ public class GameMenuView extends View {
     private void exceptionTest3() throws Exception{
         ThrowExceptionAssignmentView testing = new ThrowExceptionAssignmentView();
         testing.getDoubleNumber();
+    }
+    
+    private void exceptionTest4() throws Exception{
+        ThrowExceptionAssignmentView testing = new ThrowExceptionAssignmentView();
+        testing.battleResult();
     }
 }

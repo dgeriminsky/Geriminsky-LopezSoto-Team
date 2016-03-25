@@ -8,6 +8,12 @@ package theriskgame;
 import byui.cit260.TheRiskGame.model.Game;
 import byui.cit260.TheRiskGame.model.Player;
 import byui.cit260.TheRiskGame.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,6 +24,14 @@ public class TheRiskGame {
     private static Game currentGame = null;
     private static Player player = null;
 
+
+
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+
+    private static PrintWriter logFile = null;
+    
+    
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -34,6 +48,31 @@ public class TheRiskGame {
         TheRiskGame.player = player;
     }
     
+        public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        TheRiskGame.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        TheRiskGame.inFile = inFile;
+    }
+    
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        TheRiskGame.logFile = logFile;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -41,6 +80,7 @@ public class TheRiskGame {
        
         // create StartProgramViewOrig and display the start program view
         StartProgramView startProgramView = new StartProgramView();
+    
     try { 
         startProgramView.displayStartProgramView();
         } catch (Throwable te){
@@ -50,6 +90,41 @@ public class TheRiskGame {
           
         }
   
+    try{
+        // Open Character Stream Files for End user Input and Output
+        TheRiskGame.inFile = 
+                new BufferedReader(new InputStreamReader(System.in));
+        
+        TheRiskGame.outFile = new PrintWriter(System.out, true);
+        
+        // open log file
+        
+        String filePath = "log.txt";
+        TheRiskGame.logFile = new PrintWriter(filePath);
+        
+        }catch (Throwable e)  {
+            System.out.println("Exception: " + e.toString() + 
+                                "/nCause: " + e.getCause() +
+                                "/nMessage: " + e.getMessage());
+            e.printStackTrace();
+        } 
+    
+    finally {
+        try{
+
+      if(TheRiskGame.inFile != null)  
+        TheRiskGame.inFile.close();
+      if(TheRiskGame.outFile != null)
+        TheRiskGame.outFile.close();
+      if(TheRiskGame.logFile != null)
+          TheRiskGame.logFile.close();
+      }catch (IOException ex){
+          System.out.println("Error closing files");
+          return;
+      }
+         } 
+        
+        
     }
     
     

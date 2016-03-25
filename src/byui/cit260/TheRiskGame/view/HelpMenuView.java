@@ -26,44 +26,7 @@ public class HelpMenuView extends View {
             + "\nE - Exit help menu"
             + "\n--------------------------------------");
     }
-    /*void displayHelpMenu() {
-        
-        char selection = ' ';
-        do {
-            
-            System.out.println(HELP); // display the help menu
-            
-            String input = this.getInput(); // get the user's selection
-            selection = input.charAt(0); // get first character of string
-            
-            this.doAction(selection); // do action based on selection
-            
-        } while (selection != 'E'); // selection is not "Exit"
-    }
     
-    private String getInput() {
-        
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        
-        String value = ""; // value to be returned
-        boolean valid = false; // initialize to not vaid
-        
-        while (!valid) { // lop while an invaid value is enter
-            System.out.println("\n Please type your selection: ");
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; // end the loop
-        }
-        
-        return value; // return the value entered
-    }*/
     
     @Override
     public boolean doAction(String value) {

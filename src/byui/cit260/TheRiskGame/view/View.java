@@ -5,7 +5,10 @@
  */
 package byui.cit260.TheRiskGame.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import theriskgame.TheRiskGame;
 
 /**
  *
@@ -14,6 +17,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = TheRiskGame.getInFile();
+    protected final PrintWriter console = TheRiskGame.getOutFile();
     
     public View() {        
     }
@@ -43,27 +49,29 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
                 
-        Scanner keyboard = new Scanner(System.in); 
+        //Scanner keyboard = new Scanner(System.in); 
         boolean valid = false; 
         String value = null; 
-        
-        // while a valid name has not been retrieved
-        while (!valid) { 
-            
-            // prompt for the player's name
-            System.out.println("\n" + this.displayMessage);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
+        try {
+            // while a valid name has not been retrieved
+            while (!valid) { 
+
+                // prompt for the player's name
+                System.out.println("\n" + this.displayMessage);
+
+                value = this.keyboard.readLine(); // get next line typed on keyboard
+                value = value.trim(); // trim off leading and trailing blanks
+
+                if (value.length() < 1) { // value is blank
+                    System.out.println("\nInvalid value: value can not be blank");
+                    continue;
+                }
+
+                break; // end the loop
             }
-            
-            break; // end the loop
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
         }
-        
         return value; // return the value entered        
     }
             

@@ -32,12 +32,12 @@ public class MainMenuView extends View {
             
             
     /*public void displayMainMenu() {
-        //System.out.println("/n*** displayMainMenu() function called ***");
+        //System..out.println("/n*** displayMainMenu() function called ***");
         
         char selection = ' ';
         do {
             
-            System.out.println(MENU); // display the main menu
+            System..out.println(MENU); // display the main menu
             
             String input = this.getInput(); // get the user's selection
             selection = input.charAt(0); // get first character of string
@@ -56,13 +56,13 @@ public class MainMenuView extends View {
         boolean valid = false; // initialize to not vaid
         
         while (!valid) { // lop while an invaid value is enter
-            System.out.println("\n Please type your selection: ");
+            System..out.println("\n Please type your selection: ");
             
             value = keyboard.nextLine(); // get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
             
             if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
+                System..out.println("\nInvalid value: value can not be blank");
                 continue;
             }
             
@@ -94,7 +94,8 @@ public class MainMenuView extends View {
             case "E": // Exit the program
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), 
+                        "\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -111,7 +112,7 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+        this.console.println("\n*** startExistingGame function called ***");
     }
 
     private void displayHelpMenu() throws Exception {

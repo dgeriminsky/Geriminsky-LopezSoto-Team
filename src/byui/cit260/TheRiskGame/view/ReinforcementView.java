@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.TheRiskGame.View;
+package byui.cit260.TheRiskGame.view;
 
 import byui.cit260.TheRiskGame.Control.TurnControl;
 import byui.cit260.TheRiskGame.exceptions.TurnControlException;
@@ -26,16 +26,18 @@ public class ReinforcementView extends byui.cit260.TheRiskGame.view.View{
     {
        
         if (value.length() < 2) {
-            System.out.println("\nInvalid entry: The name must be greater than one character in length");
+            ErrorView.display(this.getClass().getName(), 
+                    "\nInvalid entry: The name must be greater than one character in length");
             return false;
         }
         
         else if (value.length() > 10) {
-            System.out.println("\nInvalid entry: The name must be 41 or less characters in length");
+            ErrorView.display(this.getClass().getName(), 
+                    "\nInvalid entry: The name must be 41 or less characters in length");
             return false;
         }
         else  {
-        System.out.println("\nCongratulations!  Reinforcements Awarded.");
+        this.console.println("\nCongratulations!  Reinforcements Awarded.");
       
             
         this.reinforce();
@@ -51,20 +53,21 @@ public class ReinforcementView extends byui.cit260.TheRiskGame.view.View{
                  
         int amount = 0;
         //Scanner input = new Scanner(System..in);
-        System.out.println("Enter the Amount of Territories you own: ");
+        this.console.println("Enter the Amount of Territories you own: ");
         //int territoriesOwned = input.nextInt();
         int territoriesOwned = 0;
         try {
         territoriesOwned = Integer.parseInt(this.keyboard.readLine());
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(), 
+                    "Error reading input: " + e.getMessage());
         }
         TurnControl reinforcement = new TurnControl();
          try{ 
         amount = reinforcement.getReinforcementUnits(territoriesOwned, 0);
-        System.out.println("You get " + amount + " reinforcements");
+        this.console.println("You get " + amount + " reinforcements");
          } catch (TurnControlException me){
-            System.out.println(me.getMessage());
+            ErrorView.display(this.getClass().getName(), me.getMessage());
             }  
     }            
  }

@@ -20,16 +20,18 @@ public class SaveGameView extends View {
     public boolean doAction(String value) {
         
         if (value.length() < 2) {
-            System.out.println("\nInvalid entry: The name must be greater than one character in length");
+            ErrorView.display(this.getClass().getName(), 
+                    "\nInvalid entry: The name must be greater than one character in length");
             return false;
         }
         
         else if (value.length() > 10) {
-            System.out.println("\nInvalid entry: The name must be 10 or less characters in length");
+            ErrorView.display(this.getClass().getName(), 
+                    "\nInvalid entry: The name must be 10 or less characters in length");
             return false;
         }
         else  {
-        System.out.println("\nCongratulations!  Game Saved Successfully.");
+        this.console.println("\nCongratulations!  Game Saved Successfully.");
         this.saveToFile();
         return true;
         }
@@ -37,7 +39,7 @@ public class SaveGameView extends View {
         }
 
     private void saveToFile() {
-        System.out.println("\n*** SaveToFile function called ***");
+        this.console.println("\n*** SaveToFile function called ***");
         //This will ultimately call game control and have that function 
     }
         

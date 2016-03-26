@@ -18,7 +18,7 @@ public abstract class View implements ViewInterface {
     
     protected String displayMessage;
     
-    public final BufferedReader keyboard = TheRiskGame.getInFile();
+    protected final BufferedReader keyboard = TheRiskGame.getInFile();
     protected final PrintWriter console = TheRiskGame.getOutFile();
     
     public View() {        
@@ -57,20 +57,23 @@ public abstract class View implements ViewInterface {
             while (!valid) { 
 
                 // prompt for the player's name
-                System.out.println("\n" + this.displayMessage);
+                //System..out.println("\n" + this.displayMessage);
+                this.console.println("\n" + this.displayMessage);
 
                 value = this.keyboard.readLine(); // get next line typed on keyboard
                 value = value.trim(); // trim off leading and trailing blanks
 
                 if (value.length() < 1) { // value is blank
-                    System.out.println("\nInvalid value: value can not be blank");
+                    ErrorView.display(this.getClass().getName(), 
+                            "\nInvalid value: value can not be blank");
                     continue;
                 }
 
                 break; // end the loop
             }
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(), 
+                    "Error reading input: " + e.getMessage());
         }
         return value; // return the value entered        
     }

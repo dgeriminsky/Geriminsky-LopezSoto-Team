@@ -45,7 +45,7 @@ public class GameMenuView extends View {
         char selection = ' ';
         do {
             
-            System.out.println(MENU); // display the game menu
+            System..out.println(MENU); // display the game menu
             
             String input = this.getInput(); // get the user's selection
             selection = input.charAt(0); // get first character of string
@@ -64,13 +64,13 @@ public class GameMenuView extends View {
         boolean valid = false; // initialize to not vaid
         
         while (!valid) { // loop while an invaid value is enter
-            System.out.println("\n Please type your selection: ");
+            System..out.println("\n Please type your selection: ");
             
             value = keyboard.nextLine(); // get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
             
             if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
+                System..out.println("\nInvalid value: value can not be blank");
                 continue;
             }
             
@@ -118,7 +118,8 @@ public class GameMenuView extends View {
             case "E": // Exit the program
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), 
+                        "\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -138,15 +139,15 @@ public class GameMenuView extends View {
     }
 
     private void attackTerritory() {
-        System.out.println("\n*** attackTerritory function called ***");
+        this.console.println("\n*** attackTerritory function called ***");
     }
 
     private void moveUnits() {
-        System.out.println("\n*** moveUnits function called ***");
+        this.console.println("\n*** moveUnits function called ***");
     }
 
     private void viewMap() {
-        System.out.println("\n                                       ########                                      ####                                \n" +
+        this.console.println("\n                                       ########                                      ####                                \n" +
 "                                   ####        ##                                  ##    ######                          \n" +
 "                           ###    # Greenland  #                                  #           ####### ########           \n" +
 "    ######## ######       # O-----O##         O#             Scandanavia       # ###           #      #        ####       \n" +
@@ -199,27 +200,27 @@ public class GameMenuView extends View {
         Territory[] territoryList = map.getTerritoryList();
         /*
         for (int i = 0; i < 42; i++) {
-            System.out.println(territoryList[i].getName()
+            System..out.println(territoryList[i].getName()
                 +"\t " + territoryList[i].getOwner()
                 +"\t " + territoryList[i].getGarrisonSize());
         }*/
         
         for (Territory territory: territoryList) {
-            System.out.println(territory.getName()
+            this.console.println(territory.getName()
                 +"\t " + territory.getOwner()
                 +"\t " + territory.getGarrisonSize());
         }
         TurnControl turnControl = new TurnControl();
         
         
-        System.out.println("\n Total Number of Units per Player:"
+        this.console.println("\n Total Number of Units per Player:"
                 + "\n David has a total of " 
                 + turnControl.getTotalUnitsPerPlayer("David", territoryList) 
                 + " army units");
-        System.out.println("Lehi has a total of " 
+        this.console.println("Lehi has a total of " 
                 + turnControl.getTotalUnitsPerPlayer("Lehi", territoryList) 
                 + " army units");
-        System.out.println("Mahonri has a total of " 
+        this.console.println("Mahonri has a total of " 
                 + turnControl.getTotalUnitsPerPlayer("Mahonri", territoryList) 
                 + " army units");
     }
@@ -231,11 +232,11 @@ public class GameMenuView extends View {
  //       TurnControl reinforcement = TurnControl.getReinforcementUnits(territory, continent);
   //      reinforcement.getReinforcementUnits(int territories, double continents);
         
- //       System.out.println("\n*** Total Number of Reinforcment Units are " + reinforcement +);
+ //       System..out.println("\n*** Total Number of Reinforcment Units are " + reinforcement +);
     }
 
     private void endTurn() {
-        System.out.println("\n*** endTurn function called ***");
+        this.console.println("\n*** endTurn function called ***");
     }
 
     private void exceptionTest() throws Exception{

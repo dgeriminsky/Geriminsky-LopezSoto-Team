@@ -1,0 +1,4 @@
+byui.cit260.TheRiskGame.view.StartProgramView - 
+Invalid value: value can not be blank
+byui.cit260.TheRiskGame.view.StartProgramView - 
+Invalid players name: The name must be greater than one character in length

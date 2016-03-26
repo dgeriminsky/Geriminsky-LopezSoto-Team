@@ -7,6 +7,7 @@ package byui.cit260.TheRiskGame.view;
 
 import byui.cit260.TheRiskGame.Control.GameControl;
 import byui.cit260.TheRiskGame.model.Player;
+import byui.cit260.TheRiskGame.view.GameMenuView;
 import java.util.Scanner;
 
 /**
@@ -18,14 +19,18 @@ public class StartProgramView {
     private String promptMessage;
      
     public StartProgramView() {
-        //System.out.println("\n*** StartProgramView() called ***");
+        //System..out.println("\n*** StartProgramView() called ***");
         this.promptMessage = "\nPlease enter your name: ";
         //display the banner when view is created
         this.displayBanner();
     }
 
     public void displayBanner() {
+        
+        GameMenuView view = new GameMenuView();
+       
 
+        
         System.out.println(
                   "\n**************************************************"
                 + "\n*                                                *"
@@ -47,7 +52,7 @@ public class StartProgramView {
      * display the start program view
      */
     public void displayStartProgramView() throws Exception {
-        //System.out.println("/n*** displayStartProgramView function called ***");
+        //System..out.println("/n*** displayStartProgramView function called ***");
         
         boolean done = false; // set flag to not done
         do {
@@ -64,7 +69,7 @@ public class StartProgramView {
     }     
 
     private String getPlayerName() {
-        //System.out.println("\n*** getPlayerName() called ***");
+        //System..out.println("\n*** getPlayerName() called ***");
         //return "Joe";
         
         //Scanner keyboard = new Scanner(System..in); // get infile for keyboard
@@ -75,21 +80,23 @@ public class StartProgramView {
         
         try {
             while (!valid) { // lop while an invaid value is enter
-                System.out.println("\n" + this.promptMessage);
+                view.console.println("\n" + this.promptMessage);
 
                 //value = keyboard.nextLine(); // get next line typed on keyboard
                 value = view.keyboard.readLine();
                 value = value.trim(); // trim off leading and trailing blanks
 
                 if (value.length() < 1) { // value is blank
-                    System.out.println("\nInvalid value: value can not be blank");
+                    ErrorView.display(this.getClass().getName(), 
+                            "\nInvalid value: value can not be blank");
                     continue;
                 }
 
                 break; // end the loop
             }
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(), 
+                    "Error reading input: " + e.getMessage());
         }
         return value; // return the value entered        
     }
@@ -97,7 +104,8 @@ public class StartProgramView {
     private boolean doAction(String playersName) throws Exception{
         
         if (playersName.length() < 2) {
-            System.out.println("\nInvalid players name: "
+            ErrorView.display(this.getClass().getName(), 
+                    "\nInvalid players name: "
                     + "The name must be greater than one character in length");
             return false;
         }
@@ -106,7 +114,8 @@ public class StartProgramView {
         Player player = GameControl.createPlayer(playersName);
         
         if (player == null) { // if unsuccessful
-            System.out.println("\nError creating the player.");
+            ErrorView.display(this.getClass().getName(), 
+                    "\nError creating the player.");
             return false;
         }
         
@@ -118,15 +127,16 @@ public class StartProgramView {
 
     private void displayNextView(Player player) throws Exception{
         
+        // Create MainMenuView object
+        MainMenuView mainMenuView = new MainMenuView();
+
         // display a custom welcome message
-        System.out.println("\n============================================="
+        mainMenuView.console.println("\n============================================="
                           + "\n Welcome to the game " + player.getName()
                           + "\n We hope you have a lot of fun!"
                           + "\n=============================================");
         
-        // Create MainMenuView object
-        MainMenuView mainMenuView = new MainMenuView();
-        
+                
         // Display the main menu view
         mainMenuView.display();
     }

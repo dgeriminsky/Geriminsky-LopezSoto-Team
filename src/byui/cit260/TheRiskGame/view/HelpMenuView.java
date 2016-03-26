@@ -31,7 +31,7 @@ public class HelpMenuView extends View {
         char selection = ' ';
         do {
             
-            System.out.println(HELP); // display the help menu
+            System..out.println(HELP); // display the help menu
             
             String input = this.getInput(); // get the user's selection
             selection = input.charAt(0); // get first character of string
@@ -49,13 +49,13 @@ public class HelpMenuView extends View {
         boolean valid = false; // initialize to not vaid
         
         while (!valid) { // lop while an invaid value is enter
-            System.out.println("\n Please type your selection: ");
+            System..out.println("\n Please type your selection: ");
             
             value = keyboard.nextLine(); // get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
             
             if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
+                System..out.println("\nInvalid value: value can not be blank");
                 continue;
             }
             
@@ -87,14 +87,15 @@ public class HelpMenuView extends View {
             case "E": // Exit the help menu
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), 
+                        "\n*** Invalid selection *** Try again");
                 break;
         }
         return false;   
     }
 
     private void gameGoal() {
-        System.out.println("\n**************************************************"
+        this.console.println("\n**************************************************"
                 + "\n*                                                *"
                 + "\n* OBJECT OF THE GAME                             *"
                 + "\n*                                                *"
@@ -107,7 +108,7 @@ public class HelpMenuView extends View {
     }
 
     private void reinforcementTutorial() {
-        System.out.println("\nGETTING AND PLACING NEW ARMIES\n" +
+        this.console.println("\nGETTING AND PLACING NEW ARMIES\n" +
 "At the beginning of each turn, calculate how many new armies you’ll add\n" +
 "to your territories based on . . .\n" +
 "1. The number of territories you occupy;\n" +
@@ -131,7 +132,7 @@ public class HelpMenuView extends View {
     }
 
     private void cardsTutorial() {
-        System.out.println("\nRISK CARDS\n" +
+        this.console.println("\nRISK CARDS\n" +
 "Earning Cards. At the end of any turn in which you have captured at\n" +
 "least one territory, you will earn one (and only one) RISK card. You are\n" +
 "trying to collect sets of 3 cards in any of the following combinations:"
@@ -141,7 +142,7 @@ public class HelpMenuView extends View {
     }
 
     private void battleTutorial() {
-        System.out.println("\n ATTACKING"
+        this.console.println("\n ATTACKING"
                 + "\nFirst announce both the territory you’re attacking and the one\n" +
 "you’re attacking from. Then roll the dice against the opponent who\n" +
 "occupies the opposing territory.\n" +
@@ -165,7 +166,7 @@ public class HelpMenuView extends View {
     }
 
     private void conqueringTutorial() {
-        System.out.println("Capturing territories"
+        this.console.println("Capturing territories"
                 + "\nAs soon as you defeat the last opposing army on\n" +
 "a territory, you capture that territory and must occupy it immediately. To\n" +
 "do so, move in at least as many armies as the number of dice you rolled in\n" +

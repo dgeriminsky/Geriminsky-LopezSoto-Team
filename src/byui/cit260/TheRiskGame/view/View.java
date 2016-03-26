@@ -18,7 +18,7 @@ public abstract class View implements ViewInterface {
     
     protected String displayMessage;
     
-    protected final BufferedReader keyboard = TheRiskGame.getInFile();
+    public final BufferedReader keyboard = TheRiskGame.getInFile();
     protected final PrintWriter console = TheRiskGame.getOutFile();
     
     public View() {        

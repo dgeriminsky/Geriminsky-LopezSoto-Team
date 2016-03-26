@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class StartProgramView {
     
     private String promptMessage;
-    
+     
     public StartProgramView() {
         //System.out.println("\n*** StartProgramView() called ***");
         this.promptMessage = "\nPlease enter your name: ";
@@ -67,25 +67,30 @@ public class StartProgramView {
         //System.out.println("\n*** getPlayerName() called ***");
         //return "Joe";
         
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+        //Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         
         String value = ""; // value to be returned
         boolean valid = false; // initialize to not vaid
+        GameMenuView view = new GameMenuView();
         
-        while (!valid) { // lop while an invaid value is enter
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
+        try {
+            while (!valid) { // lop while an invaid value is enter
+                System.out.println("\n" + this.promptMessage);
+
+                //value = keyboard.nextLine(); // get next line typed on keyboard
+                value = view.keyboard.readLine();
+                value = value.trim(); // trim off leading and trailing blanks
+
+                if (value.length() < 1) { // value is blank
+                    System.out.println("\nInvalid value: value can not be blank");
+                    continue;
+                }
+
+                break; // end the loop
             }
-            
-            break; // end the loop
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
         }
-        
         return value; // return the value entered        
     }
 

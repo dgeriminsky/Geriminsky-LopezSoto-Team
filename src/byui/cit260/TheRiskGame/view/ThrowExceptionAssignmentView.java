@@ -20,12 +20,21 @@ public class ThrowExceptionAssignmentView {
     
    
     public void reinforce() throws Exception{
+        
+        GameMenuView view = new GameMenuView();
         int amount = 0;
-        Scanner input = new Scanner(System.in);
+        
+        //Scanner input = new Scanner(System.in);
         boolean turnAround = false;
+        int territoriesOwned = 0;
+        
         do{
         System.out.println("\nEnter the Amount of Territories you own: ");
-        int territoriesOwned = input.nextInt();
+        try {
+            territoriesOwned = Integer.parseInt(view.keyboard.readLine());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
         
         TurnControl reinforcement = new TurnControl();
          try{ 
@@ -40,25 +49,52 @@ public class ThrowExceptionAssignmentView {
     }
 
     public void battleResult() throws TurnControlException{
+        
+        GameMenuView view = new GameMenuView();
+        
         int result = 0;
-        Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System.in);
         boolean turnAround = false;
         do{
             System.out.println("\nEnter the first attack dice value: ");
-            int attackDice1 = input.nextInt();
-            
+            int attackDice1 = 0;
+            try {
+                attackDice1 = Integer.parseInt(view.keyboard.readLine());
+            } catch (Exception e) {
+                System.out.println("Error reading input: " + e.getMessage());
+            }
+                
             System.out.println("\nEnter the second attack dice value: ");
-            int attackDice2 = input.nextInt();
+            int attackDice2 = 0;
+            try {
+                attackDice2 = Integer.parseInt(view.keyboard.readLine());
+            } catch (Exception e) {
+                System.out.println("Error reading input: " + e.getMessage());
+            }
             
             System.out.println("\nEnter the third attack dice value: ");
-            int attackDice3 = input.nextInt();
+            int attackDice3 = 0;
+            try {
+                attackDice3 = Integer.parseInt(view.keyboard.readLine());
+            } catch (Exception e) {
+                System.out.println("Error reading input: " + e.getMessage());
+            }
             
             System.out.println("\nEnter the first defense dice value: ");
-            int defenseDice1 = input.nextInt();
-            
+            int defenseDice1 = 0;
+            try {
+                defenseDice1 = Integer.parseInt(view.keyboard.readLine());
+            } catch (Exception e) {
+                System.out.println("Error reading input: " + e.getMessage());
+            }
             System.out.println("\nEnter the second defense dice value: ");
-            int defenseDice2 = input.nextInt();
-        
+            int defenseDice2 = 0;
+            try {
+                defenseDice2 = Integer.parseInt(view.keyboard.readLine());
+            } catch (Exception e) {
+                System.out.println("Error reading input: " + e.getMessage());
+            }
+            
             BattleControl battleResult = new BattleControl();
             try{ 
                 result = battleResult.defineBattleResult(attackDice1,
@@ -78,13 +114,21 @@ public class ThrowExceptionAssignmentView {
     }
     
     public void cardReinforce() throws BattleControlException{
+        
+        GameMenuView view = new GameMenuView();
+        
         int amount = 0;
-        Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System.in);
         boolean turnAround = false;
         do{
             System.out.println("\nEnter the current Card Exchange turn: ");
-            int cardExchangeTurn = input.nextInt();
-        
+            int cardExchangeTurn = 0;
+            try {
+                cardExchangeTurn = Integer.parseInt(view.keyboard.readLine());
+            } catch (Exception e) {
+                System.out.println("Error reading input: " + e.getMessage());
+            }
+             
             TurnControl cardReinforcement = new TurnControl();
             try{ 
                 amount = cardReinforcement.getCardReinforcementUnits(cardExchangeTurn);
@@ -106,15 +150,20 @@ public class ThrowExceptionAssignmentView {
         //We dont have anywhere else in our code where this would have made sense
         //So we created this function as a test bed.
         Double number = null;
-        
+        GameMenuView view = new GameMenuView();
        
-        Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System.in);
         //create boolean for the do while loop
         boolean turnAround = false;
         do{
              //Take user input
         System.out.println("\nEnter a number: ");
-        String tester = input.nextLine();
+        String tester = null;
+        try {
+        tester = view.keyboard.readLine();
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
         
         //trim the user input
          String value = tester;

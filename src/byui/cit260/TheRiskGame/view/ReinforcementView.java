@@ -50,7 +50,7 @@ public class ReinforcementView extends byui.cit260.TheRiskGame.view.View{
     private void reinforce() throws TurnControlException {
                  
         int amount = 0;
-        //Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System..in);
         System.out.println("Enter the Amount of Territories you own: ");
         //int territoriesOwned = input.nextInt();
         int territoriesOwned = 0;

@@ -108,7 +108,7 @@ public class GameControl {
     }
     
     public void highScore(){
-        //Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System..in);
         System.out.println("Enter Your HighScore");
         
         GameMenuView view = new GameMenuView();

@@ -24,7 +24,7 @@ public class ThrowExceptionAssignmentView {
         GameMenuView view = new GameMenuView();
         int amount = 0;
         
-        //Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System..in);
         boolean turnAround = false;
         int territoriesOwned = 0;
         
@@ -53,7 +53,7 @@ public class ThrowExceptionAssignmentView {
         GameMenuView view = new GameMenuView();
         
         int result = 0;
-        //Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System..in);
         boolean turnAround = false;
         do{
             System.out.println("\nEnter the first attack dice value: ");
@@ -118,7 +118,7 @@ public class ThrowExceptionAssignmentView {
         GameMenuView view = new GameMenuView();
         
         int amount = 0;
-        //Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System..in);
         boolean turnAround = false;
         do{
             System.out.println("\nEnter the current Card Exchange turn: ");
@@ -152,7 +152,7 @@ public class ThrowExceptionAssignmentView {
         Double number = null;
         GameMenuView view = new GameMenuView();
        
-        //Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System..in);
         //create boolean for the do while loop
         boolean turnAround = false;
         do{

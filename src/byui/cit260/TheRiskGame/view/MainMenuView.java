@@ -50,7 +50,7 @@ public class MainMenuView extends View {
 
     private String getInput() {
         
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+        Scanner keyboard = new Scanner(System..in); // get infile for keyboard
         
         String value = ""; // value to be returned
         boolean valid = false; // initialize to not vaid

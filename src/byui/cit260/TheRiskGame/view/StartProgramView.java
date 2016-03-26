@@ -67,7 +67,7 @@ public class StartProgramView {
         //System.out.println("\n*** getPlayerName() called ***");
         //return "Joe";
         
-        //Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+        //Scanner keyboard = new Scanner(System..in); // get infile for keyboard
         
         String value = ""; // value to be returned
         boolean valid = false; // initialize to not vaid

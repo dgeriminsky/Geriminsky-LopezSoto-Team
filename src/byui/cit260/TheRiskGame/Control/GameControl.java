@@ -8,6 +8,7 @@ import byui.cit260.TheRiskGame.model.CardsDeck;
 import byui.cit260.TheRiskGame.model.Game;
 import byui.cit260.TheRiskGame.model.Map;
 import byui.cit260.TheRiskGame.model.Player;
+import byui.cit260.TheRiskGame.view.GameMenuView;
 import byui.cit260.TheRiskGame.view.StartProgramView;
 import theriskgame.TheRiskGame;
 import java.util.*;
@@ -107,9 +108,19 @@ public class GameControl {
     }
     
     public void highScore(){
-        Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System.in);
         System.out.println("Enter Your HighScore");
-        int playerScore = input.nextInt();
+        
+        GameMenuView view = new GameMenuView();
+        
+        int playerScore = 0;
+        
+        try {
+            playerScore = Integer.parseInt(view.keyboard.readLine());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }        
+        
         int[] scores = {16,200,2589,23,664,1};
         int highest = 0;
         

@@ -11,7 +11,16 @@ import byui.cit260.TheRiskGame.exceptions.TurnControlException;
 import byui.cit260.TheRiskGame.model.Territory;
 import byui.cit260.TheRiskGame.model.Map;
 import byui.cit260.TheRiskGame.model.Game;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import theriskgame.TheRiskGame;
+import java.io.*;
 
 /**
  *
@@ -35,6 +44,7 @@ public class GameMenuView extends View {
             + "\nX - Exception test for reinforcements"
             + "\nY - Exception test for cards reinforcements"
             + "\nZ - String to Double with exception"
+            + "\nF - Save a Report of Territories"
             + "\nE - Exit"
             + "\n--------------------------------------");
     }
@@ -114,6 +124,9 @@ public class GameMenuView extends View {
                 break;
             case "Z": // Throw Exceptions View
                 this.exceptionTest3();
+                break;
+            case "F": // Report on Territories to file
+                this.territoryReport();
                 break;
             case "E": // Exit the program
                 return true;
@@ -258,4 +271,66 @@ public class GameMenuView extends View {
         ThrowExceptionAssignmentView testing = new ThrowExceptionAssignmentView();
         testing.battleResult();
     }
+    
+        private void territoryReport() {
+        Game game = TheRiskGame.getCurrentGame();
+        Map map = game.getMap();
+        Territory[] territoryList = map.getTerritoryList();
+        String path = null;
+        
+        //File file = new File("C:\\Users\\David\\Desktop\\territoryReport.csv");
+        //write territory list to file
+       try {
+           this.console.println("\n Type in the path to where you would like to save the file"
+                   + "\n  an example of this would be:"
+                   + "\n C:\\Users\\David\\Desktop");
+           path = this.keyboard.readLine();
+           File file = new File(path +"\\report.csv");
+           
+           FileWriter fw = new FileWriter(file);
+           Writer output = new BufferedWriter (fw);
+           //output.write("List of Territories\n");
+           
+           output.write("Territory, Owner, Garrison Size\n");
+                      
+           for (int i = 0; i < 42; i++){
+               output.write(territoryList[i] + "\n");
+           }
+           this.console.println("Congratulations you have saved a file to" + path + "\\report.csv");
+           
+           /*
+           ///  FIRST WORKING ONE
+           FileOutputStream fo = new FileOutputStream(file);
+           ObjectOutputStream output = new ObjectOutputStream(fo);
+           for (Territory t : territoryList){
+               
+               output.writeObject(t);
+           }fo.close();
+           */
+           output.close();
+           
+       } catch (Exception ex) {
+           System.out.printf("ERROR File Not Found: %s\n", ex);
+       }
+       
+       
+       
+       
+       /* try {
+            PrintWriter output = new PrintWriter(file);
+            output.println(territoryList);
+            output.close();
+
+//FileOutputStream fo = new FileOutputStream(file);
+            //ObjectoutputStream arrayOut = new ObjectOutputStream(fo);
+            //for (territory t : Map.getTerritoryList()) {
+              //  (Map.getTerritoryList());
+            //}
+            
+        } catch (IOException ex) {
+            System.out.printf("ERROR: %s\n", ex);
+
+        } */
+    }
+    
 }

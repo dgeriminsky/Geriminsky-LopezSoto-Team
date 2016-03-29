@@ -109,9 +109,8 @@ public class Territory implements Serializable {
 
     @Override
     public String toString() {
-        return "Territory{" + "name=" + name + ", owner=" + owner + ", garrisonSize=" + garrisonSize + '}';
+        return name + "," + owner + "," + garrisonSize;
     }
     
-    
-    
+
 }

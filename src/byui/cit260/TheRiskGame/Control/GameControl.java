@@ -4,12 +4,17 @@
  * and open the template in the editor.
  */
 package byui.cit260.TheRiskGame.Control;
+import byui.cit260.TheRiskGame.exceptions.GameControlException;
 import byui.cit260.TheRiskGame.model.CardsDeck;
 import byui.cit260.TheRiskGame.model.Game;
 import byui.cit260.TheRiskGame.model.Map;
 import byui.cit260.TheRiskGame.model.Player;
 import byui.cit260.TheRiskGame.view.GameMenuView;
 import byui.cit260.TheRiskGame.view.StartProgramView;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import theriskgame.TheRiskGame;
 import java.util.*;
 
@@ -69,10 +74,34 @@ public class GameControl {
     public void initializeMap(){
     }
     
-    public void saveGame(String gameId){
+    public static void saveGame(Game game , String filePath)
+    throws Exception{
+        
+        try( FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game); // Write the game object out to file
+        }catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
     }
     
-    public void retrieveGame (String gameId){
+    public static void retrieveGame (String filePath)
+    throws GameControlException {
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject(); // read the game object from file
+            
+        } catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        
+        //close the output file
+        TheRiskGame.setCurrentGame(game);  //save in The Risk Game
+        
     }
     
     public static Player createPlayer(String playersName){
@@ -108,7 +137,7 @@ public class GameControl {
     }
     
     public void highScore(){
-        //Scanner input = new Scanner(System..in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Enter Your HighScore");
         
         GameMenuView view = new GameMenuView();
@@ -116,7 +145,7 @@ public class GameControl {
         int playerScore = 0;
         
         try {
-            playerScore = Integer.parseInt(view.keyboard.readLine());
+            playerScore = input.nextInt();
         } catch (Exception e) {
             System.out.println("Error reading input: " + e.getMessage());
         }        

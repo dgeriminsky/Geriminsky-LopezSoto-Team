@@ -9,27 +9,27 @@ package byui.cit260.TheRiskGame.exceptions;
  *
  * @author David
  */
-public class TurnControlException extends Exception {
- 
-    public TurnControlException() {
+public class GameControlException extends Exception{
+
+    public GameControlException() {
     }
 
-    public TurnControlException(String string) {
+    public GameControlException(String string) {
         super(string);
     }
 
-    public TurnControlException(String string, Throwable thrwbl) {
+    public GameControlException(String string, Throwable thrwbl) {
         super(string, thrwbl);
     }
 
-    public TurnControlException(Throwable thrwbl) {
+    public GameControlException(Throwable thrwbl) {
         super(thrwbl);
     }
 
-    public TurnControlException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
+    public GameControlException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
-    
+ 
     
     
 }
